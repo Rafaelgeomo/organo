@@ -1,4 +1,3 @@
-
 import './rodape.css'
 
 const Rodape = () => {
