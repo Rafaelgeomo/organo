@@ -54,7 +54,7 @@ const Formulario = ({aoCadastrar, times, cadastrarTime}) => {
             </form>
             <form className="formulario" onSubmit={(evento) => {
                 evento.preventDefault()
-                cadastrarTime({ nome: nomeTime, cor: corTime})
+                cadastrarTime({ nome: nomeTime, cor: corTime}) // sempre quando está dentro de {} quer dizer q é um objeto
             }}>
                 <h2>Preencha os dados para criar um novo time.</h2>
                 <CampoTexto
