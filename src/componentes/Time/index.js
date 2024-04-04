@@ -1,6 +1,6 @@
 import Colaborador from "../Colaborador";
 import "./Time.css";
-import hexToRgba from "hex-to-rgba";
+import hexToRgba from "hex-to-rgba"; //https://www.npmjs.com/package/hex-to-rgba
 
 const Time = ({ time, colaboradores, aoDeletar, mudarCor }) => {
   return (
@@ -9,13 +9,18 @@ const Time = ({ time, colaboradores, aoDeletar, mudarCor }) => {
         className="time"
         style={{
           backgroundImage: "url(/imagens/fundo.png)",
-          backgroundColor: hexToRgba(time.cor, '0.6'), // hexToRgba com o '0.6' faz com que mude a opacidade da cor de fundo.
+          backgroundColor: hexToRgba(time.cor, "0.6"), // hexToRgba com o '0.6' faz com que mude a opacidade da cor de fundo.
         }}
       >
-        <input onChange={evento => mudarCor(evento.target.value, time.nome)} value={time.cor} type="color" className="input-cor"/>
-        <h3 style={{ borderColor: time.cor}}>
-          {time.nome}
-        </h3>
+        <input
+          onChange={(evento) =>
+            mudarCor(evento.target.value, time.id)
+          }
+          value={time.cor}
+          type="color"
+          className="input-cor"
+        />
+        <h3 style={{ borderColor: time.cor }}>{time.nome}</h3>
         <div className="colaboradores">
           {colaboradores.map((colaborador, indice) => {
             return (
@@ -51,4 +56,3 @@ export default Time;
 
 // Atualização do Papel (Próxima Impressão):
 // Se você quiser imprimir algo diferente, você pode usar setState para obter um novo papel em branco pronto para ser preenchido pela impressora novamente.
-
