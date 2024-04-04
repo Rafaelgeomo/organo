@@ -1,5 +1,6 @@
 import Colaborador from "../Colaborador";
 import "./Time.css";
+import hexToRgba from "hex-to-rgba";
 
 const Time = ({ time, colaboradores, aoDeletar, mudarCor }) => {
   return (
@@ -8,11 +9,11 @@ const Time = ({ time, colaboradores, aoDeletar, mudarCor }) => {
         className="time"
         style={{
           backgroundImage: "url(/imagens/fundo.png)",
-          backgroundColor: time.corPrimaria,
+          backgroundColor: hexToRgba(time.cor, '0.6'), // hexToRgba com o '0.6' faz com que mude a opacidade da cor de fundo.
         }}
       >
-        <input onChange={evento => mudarCor(evento.target.value, time.nome)} value={time.corSecundaria} type="color" className="input-cor"/>
-        <h3 style={{ borderColor: time.corSecundaria }}>
+        <input onChange={evento => mudarCor(evento.target.value, time.nome)} value={time.cor} type="color" className="input-cor"/>
+        <h3 style={{ borderColor: time.cor}}>
           {time.nome}
         </h3>
         <div className="colaboradores">
@@ -21,7 +22,7 @@ const Time = ({ time, colaboradores, aoDeletar, mudarCor }) => {
               <Colaborador
                 key={indice}
                 colaborador={colaborador}
-                corDeFundo={time.corSecundaria}
+                corDeFundo={time.cor}
                 aoDeletar={aoDeletar}
               />
             );
