@@ -1,13 +1,15 @@
 .formulario-container {
     display: flex;
+    gap: 20px;
+    flex-wrap: wrap; /* faz com que quebre a linha caso a tela seja muito pequena */
     justify-content: center;
-    margin: 80px 0;
+    margin: 80px 50px;
 
 }
 .formulario-container .formulario {
-    max-width: 80%;
     background: #F7F7F7;
     box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.08);
+    flex: 1; /* quer dizer q ele tem direito a 1 espaço flex, mas como so tem 2 formulario, cada um tem direito a 50% do container flex  */
     border-radius: 20px;
     padding: 36px 64px;
 }
